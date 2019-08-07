@@ -1,143 +1,157 @@
-<!-- Cart -->
-<section class="cart bgwhite p-t-70 p-b-100">
-<div class="container">
-<!-- Cart item -->
-<div class="container-table-cart pos-relative">
-<div class="wrap-table-shopping-cart bgwhite">
+<div class = "header">
+    <div class = "container">
+        <div class = "searchbar">
+            <form>
+                <input type="search" class = "searchField" placeholder="Search items or owners">
+            </form>
+        </div>
 
-	<h1><?php echo $title ?></h1><hr>
-	<div class="clearfix"></div>
-	<br><br>
-
-	<?php if($this->session->flashdata('sukses')) {
-		echo '<div class="alert alert-warning">';
-		echo $this->session->flashdata('sukses');
-		echo '</div>';
-	} ?>
-	<table class="table-shopping-cart">
-		<tr class="table-head">
-			<th class="column-1">Gambar</th>
-			<th class="column-2">Produk</th>
-			<th class="column-3">Harga</th>
-			<th class="column-4 p-l-70">Jumlah</th>
-			<th class="column-5" width="15%">Subtotal</th>
-			<th class="column-6" width="20%">ACTION</th>
-		</tr>
-		<?php 
-		// Looping data keranjang belanja
-		foreach($keranjang as $keranjang) { 
-			// Ambil data produk
-			$id_produk	= $keranjang['id'];
-			$produk 	= $this->produk_model->detail($id_produk);
-
-			// Form Update
-			echo form_open(base_url('belanja/update_cart/'.$keranjang['rowid']));
-		?>
-		<tr class="table-row">
-			<td class="column-1">
-				<div class="cart-img-product b-rad-4 o-f-hidden">
-					<img src="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>" alt="<?php echo $keranjang['name'] ?>">
-				</div>
-			</td>
-			<td class="column-2"><?php echo $keranjang['name'] ?></td>
-			<td class="column-3">Rp.<?php echo number_format($keranjang['price'],'0',',','.') ?></td>
-			<td class="column-4">
-				<div class="flex-w bo5 of-hidden w-size17">
-					<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-						<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-					</button>
-
-					<input class="size8 m-text18 t-center num-product" type="number" name="qty " value="<?php echo $keranjang['qty'] ?>">
-
-					<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-						<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-					</button>
-				</div>
-			</td>
-			<td class="column-5">Rp.
-				<?php 
-				$sub_total = $keranjang['price'] * $keranjang['qty'];
-				echo number_format($sub_total,'0',',','.');
-				?>
-			</td>
-			<td>
-				<button type="submit" name="update" class="btn btn-success btn-sm">
-					<i class="fa fa-edit"></i> Update
-				</button>
-
-				<a href="<?php echo base_url('belanja/hapus/'.$keranjang['rowid']) ?>" class="btn btn-warning btn-sm">
-					<i class="fa fa-trash-o"></i> Hapus
-				</a>
-			</td>
-		</tr>
-		<?php  
-		// Echo form close
-		echo form_close();
-		// End looping keranjang
-		}
-		?>
-		<tr class="table-row bg-info text-strong" style="font-weight: bold; color: white !important;">
-			<td colspan="4" class="column-1">Total Belanja</td>
-			<td colspan="2" class="column-2">Rp.<?php echo number_format($this->cart->total(),'0',',','.') ?></td>
-		</tr>
-	</table>
-	<br>
-	<?php 
-	echo form_open(base_url('belanja/checkout')); 
-	$kode_transaksi 	= date('dmY').strtoupper(random_string('alnum', 8));
-	?>
-	<input type="hidden" name="id_pelanggan" value="<?php echo $pelanggan->id_pelanggan ?>">
-	<input type="hidden" name="jumlah_transaksi" value="<?php echo $this->cart->total() ?>">
-	<input type="hidden" name="tanggal_transaksi" value="<?php echo date('Y-m-d') ?>">
-	<table class="table">
-			<thead>
-				<tr>
-					<th width="25%">Kode Transaksi</th>
-					<th><input type="text" name="kode_transaksi" class="form-control" value="<?php echo $kode_transaksi ?>" readonly required></th>
-				</tr>
-				<tr>
-					<th width="25%">Nama Penerima</th>
-					<th><input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Lengkap" value="<?php echo  $pelanggan->nama_pelanggan ?>" required></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Email Penerima</td>
-					<td><input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $pelanggan->email ?>" required></td>
-				</tr>
-				<tr>
-					<td>Telepon Penerima</td>
-					<td><input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $pelanggan->telepon ?>" required></td>
-				</tr>
-				<tr>
-					<td>Alamat Penerima</td>
-					<td><textarea name="alamat" class="form-control" placeholder="Alamat"><?php echo $pelanggan->alamat ?></textarea></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<button class="btn btn-success btn-lg" type="submit">
-							<i class="fa fa-save"></i> Checkout
-						</button>
-						<button class="btn btn-default btn-lg" type="reset">
-							<i class="fa fa-times"></i> Reset
-						</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
-	<?php echo form_close(); ?>
-</div>
+        <div class = "headerright">
+            <ul>
+                <?php if($this->session->userdata('email')) { ?>
+                    <li><a href = "<?php echo base_url('belanja/checkout') ?>" placeholder = "Cart" style ="font-size: 20px;"><i class ="fas fa-cart-plus"></i></a></li>
+                    <li><a href = "#" placeholder = "Notifications" style ="font-size: 20px;"><i class = "fas fa-bell"></i></a></li>
+                    <li><a href = "#" placeholder = "Messages" style ="font-size: 20px;"><i class = "fas fa-envelope-square"></i></a></li>
+                    <li><a href = "<?php echo base_url('dasbor') ?>" placeholder = "User"><i class = "fas fa-user"></i> <?php echo $this->session->userdata('nama_pelanggan'); ?>&nbsp;</a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-<div class="flex-w flex-m w-full-sm">
-</div>
+<?php if($this->session->flashdata('sukses')) {
+        echo '<div class="alert alert-warning">';
+        echo $this->session->flashdata('sukses');
+        echo '</div>';
+    } ?>
 
-<div class="size10 trans-0-4 m-t-10 m-b-10">
-	
-</div>
-</div>
-</div>
-</section>
+<div class = "checkout" style="background-color: #E6FFEA;width: 98%;margin-left: 18px;">
+    <div class = "container">
+        <div>
+            <label class = "container-check"> 
+                <input type="checkbox">
+                <span class = "checkmark" style="margin: 0 0 0 30px;"></span>
+                <h2 style="margin-left: 35px">Choose All Items</h2>
+            </label>
+        </div>
+
+        <?php 
+        // Looping data keranjang belanja
+        foreach($keranjang as $keranjang) { 
+            // Ambil data produk
+            $id_produk  = $keranjang['id'];
+            $produk     = $this->produk_model->detail($id_produk);
+
+            // Form Update
+            echo form_open(base_url('belanja/update_cart/'.$keranjang['rowid']));
+        ?>
+        
+        <!-- Checkout Inner -->
+        <div class = "checkout-inner">
+            <form>
+                <div class = "checkout-form-steps">
+                    <label class = "container-check">
+                        <input type ="checkbox">
+                        <span class="checkmark"></span>
+                        <img src = "<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>" alt="<?php echo $keranjang['name'] ?>" style="width: 15%;margin: 10px 5px 5px 15px; float: left;padding-right: 150px;">
+                        <h3 style="font-size: 20px;margin: 50px 0 10px 0;"><?php echo $keranjang['name'] ?></h3>
+                        <p style="font-size: 20px;margin-bottom: 40px;">
+                            Rp<?php 
+                            $sub_total = $keranjang['price'] * $keranjang['qty'];
+                            echo number_format($sub_total,'0',',','.');
+                            ?></p>
+                        <select class = "textfield" style="width: 100px;height: 45px;text-align: center;">
+                                <option>Quantity</option>
+                                <option>Single</option>
+                                <option>Multiple</option>
+                        </select>
+                        <select class = "textfield" style="width: 105px; margin-left: 20px;height: 45px;">
+                                <option>Duration</option>
+                                <option>1 Day</option>
+                                <option>Manual</option>
+                        </select>
+                    </label>
+                </div>
+
+        <?php  
+        // Echo form close
+        echo form_close();
+        // End looping keranjang
+        }
+        ?>
+
+                <div class = "banner" style = "margin-left: 30px;">
+                    <div class = "container">
+                        <h3>Last Seen</h3>
+                        <img src = "<?php echo base_url() ?>assets/upload/profile/iphone_banner.jpg">
+                    </div>
+                </div>
+
+                <div class = "popularProducts">
+                        <div class = "container">
+                            <h3>Popular Products</h3>
+                            <div class = "owl-carousel">
+                                <div class = "item"><img src = "<?php echo base_url() ?>assets/upload/rent_main/f23510_141_905_18.jpg"></div>
+                                <div class = "item"><img src = "<?php echo base_url() ?>assets/upload/rent_main/f23510_141_905_13.jpg"></div>
+                                <div class = "item"><img src = "<?php echo base_url() ?>assets/upload/rent_main/f23510_141_905_14.jpg"></div>
+                                <div class = "item"><img src = "<?php echo base_url() ?>assets/upload/rent_main/f23510_141_905_15.jpg"></div>
+                                <div class = "item"><img src = "<?php echo base_url() ?>assets/upload/rent_main/f23510_141_905_16.jpg"></div>
+                                <div class = "item"><img src = "<?php echo base_url() ?>assets/upload/rent_main/f23510_141_905_17.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+            </form>
+        </div>
+        <!-- Checkout Inner End -->
+
+        <!-- Order Summary Start -->
+        <?php 
+        echo form_open(base_url('belanja/checkout')); 
+        $kode_transaksi     = date('dmY').strtoupper(random_string('alnum', 8));
+        ?>
+            <label class = "orderSummary">
+                <h4>Renting Summary</h4>
+                <p> Total <span>Rp <?php echo number_format($this->cart->total(),'0',',','.') ?></span></p>
+                <input type = "submit" class = "RentButton" value = "Rent Items">
+                <input type = "submit" class = "PromoButton" value = "Use Promo from Telkom Rent">
+            </label>
+        <?php echo form_close(); ?>       
+        <!-- Order Summary Ends -->
+
+    </div>
+    </div>
+
+
+
+    <script src = "js/jquery-3.4.1.min.js"></script>
+    <script src = "js/owl.carousel.min.js"></script>
+    <script>
+    $('.owl-carousel').owlCarousel({
+    items:4,
+    loop:true,
+    margin:15,
+    autoplay:true,
+    autoplayTimeout:3000, //3 Second
+    nav:true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:true
+        },
+        1000:{
+            items:4,
+            nav:true
+        }
+    }
+
+    });
+    </script>
+    </body>
+    </html>

@@ -20,6 +20,7 @@ $site 	=	$this->konfigurasi_model->listing();
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/style.css">
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/profile.css">
     <link rel = "stylesheet" type = "text/css" href = "https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/checkout_page.css">
 
 </head>
 
