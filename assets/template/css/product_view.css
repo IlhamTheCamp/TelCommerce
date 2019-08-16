@@ -171,50 +171,179 @@ table {
     color: black;
 }
 
-/* Product Area */
+/* Banner Start */
 
+.banner img{
+   position: relative;
+   margin-top: 40px;
+   width: 90%;
+   left: 80px;  
+}
+
+.categories-main{
+    width: 97%;
+    left: 80px;
+    position: relative;
+    margin-top: 25px;
+    margin-right:-1000px;
+    
+}
+
+.categories-main .col-3{
+    width: 23.5%;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 50px;
+    background-color: #E6FFEA;
+    padding: 20px;
+    margin: 0px 60px 0px 20px;
+    
+}
+
+.categories-main h3{
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    
+}
+
+.categories-main .col-3 h4{
+    margin: auto;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.secondLabel{
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.caption{
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.caption h5{
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.caption p{
+    width: 100%;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.readAll button{
+   border: none;
+   font-weight: 600;
+   font-size: 14px;
+   color: rgb(51, 182, 51);
+   background-color: transparent;
+   cursor: pointer;
+}
+
+.pricey{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+}
+
+.pricey h3{
+    margin-bottom: 0;
+    padding: 8px 8px 0 8px;
+    font-size: 14px;
+    color: rgb(160, 160, 160);
+}
+
+.pricey p{
+    right: 0;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    color:rgb(51, 182, 51);
+}
+
+.pricey span{
+    margin-left: 100px;
+}
+
+.pricey button{
+    width: 120px;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(51, 182, 51);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pricey button:hover{
+    background-color: rgb(37, 126, 37);
+    border-radius: 10px;
+}
+
+.review{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.review button{
+    background-color: transparent;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+    color: rgb(37, 126, 37);
+    font-weight: 600;
+}
+
+.reviewInner{
+    margin-bottom: 7px;
+}
+
+.heading{
+    margin-right: 35px;
+}
+
+.reviewInner .fa{
+    padding-left: 2px;
+}
+
+.reviewInner p{
+    margin-top: 5px;
+}
+
+/* Products Arrival */
 .product-area{
-    width: 85%;
+    width: 87%;
     float: left;
     display: inline-block;
-    padding-top: 30px;
-    padding-left: 30px;
-    margin-left: 105px;
-    margin-top: 5px;
+    padding-top: 10px;
+    margin-left: 100px;
+    margin-top: 40px;
     background-color: #E6FFEA;
 
 }
 
-/* Upper categories */
-.product-area .categories-main .col-3{
-    width: 19%;
-    float: left;
-    display: inline-block;
-    border-radius:4px;
-    overflow: hidden;
-    margin: 0 .5% 35px;
-    margin-bottom: 50px;
-    
-}
-
-.product-area .categories-main .col-3 h5{
-    font-size: 16px;
-    color: black;
-    font-weight: 400;
-}
-
-.product-area .categories-main .col-3 img{
-    width: 25%;
-}
-
-
-/* Middle categories */
 .product-area h3{
     font-size: 18px;
     color: black;
     font-weight: 600;
     padding: 10px 0;
     margin-bottom: 10px;
+    
 }
 
 .categories-mid .See{
@@ -224,7 +353,7 @@ table {
     cursor: pointer;
     color: black;
     text-decoration: none;
-    margin-left:1050px;   
+    margin-left:970px;   
 }
 
 .categories-mid .See:hover{
@@ -238,7 +367,7 @@ table {
     border-radius:4px;
     overflow: hidden;
     margin: 0 .5% 35px;
-    margin-left: 20px;
+    margin-left: 28px;
     margin-right: 5px;
     margin-top:40px;
 }
@@ -277,7 +406,7 @@ table {
     font-size: 15px;
     font-weight: 700;
     color:  rgb(14, 185, 80);
-    background-color:  #E6FFEA;
+    background-color: #E6FFEA;
     border: none;
     padding: 10px 25px;
     border-radius: 4px;
@@ -289,6 +418,7 @@ table {
     font-size: 18px;
     font-weight: 600;
     color: white;
+    visibility: hidden;
     background-color:rgb(51, 182, 51);
     border:none;
     width: 60%;
@@ -297,203 +427,5 @@ table {
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
-    transition: 0.2s;
-    
-}
-
-.productViewBtn:hover{
-    background-color: rgb(37, 126, 37);
-    border-radius: 10px;
-    width: 65%;
-}
-
-/* Popular brands */
-.popularBrands{
-    width: 90%;
-    display: inner-block;
-    float: left;
-    padding: 15px 0;
-    margin-left: 60px;
-}
-
-.popularBrands h3{
-    font-size: 18px;
-    color: black;
-    text-transform: uppercase;
-    border-bottom: 1px solid #d2d2d2;
-    font-weight: 600;
-    padding: 10px 0;
-    margin-bottom:20px;
-}
-
-.popularBrands a{
-    display: inner-block;
-    padding: 15px 24px;
-    margin: 0 5px;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    border-radius: 4px;
-    background-color: white;
-}
-/* Popular brands end */
-
-.popularProducts{
-    margin-top: 20px;
-    width: 90%;
-    display: inline-block;
-    float: left;
-    padding:15px 0;
-    margin-left: 60px;
-}
-
-.popularProducts h3{
-    font-size: 18px;
-    columns: black;
-    text-transform: uppercase;
-    border-bottom: 1px solid #d2d2d2;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.owl-carousel .owl-nav{
-    position: absolute;
-    width: 100%;
-    top: 40%;
-}
-
-.owl-carousel .owl-nav button.owl-next span,
-.owl-carousel .owl-nav button.owl-prev span{
-    width: 45px;
-    height: 45px;
-    font-size: 48px;
-    background-color: rgb(14, 185, 80);
-    line-height: 35px;
-    display: inline-block;
-    border-radius: 50px;
-    color: #fff;
-}
-
-.owl-carousel .owl-nav button.owl-prev{
-    left: -20px;
-    position: absolute;
-}
-
-.owl-carousel .owl-nav button.owl-next{
-    right: -20px;
-    position: absolute;
-}
-
-/* Product View Box */
-
-.productViewBox{
-    width: 70%;
-    height: 70%;
-    margin: auto;
-    background-color: gray;
-    position: fixed;
-    top: 0;bottom: 0;
-    left: 0;right: 0;
-    z-index: 999;
-    border: 1px solid rgb(14, 185, 80);
-    border-radius: 4px;
-    background-color: #E6FFEA;
-    box-shadow: 0 5px 250px #000;
-    padding: 15px 25px;
-    display: none;
-}
-
-.productViewBox h3{
-    font-size: 24px;
-    font-weight: 700;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid;
-}
-
-.productViewBox-closeBtn{
-    float: right;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 35px;
-    height: 35px;
-    margin: 10px;
-    border-radius: 50px;
-    background-color: rgb(14, 185, 80);
-    color: #fff;
-    font-size: 18px;
-    text-align: center;
-    line-height: 30px;
-
-}
-
-.productViewBoxImg{
-    width: 30%;
-    float: left;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #dadada;
-}
-
-.productViewBoxImg img{
-    width: 100%;
-}
-
-.productViewBoxDetail{
-    width: 65%;
-    float: right;
-}
-
-.productViewBoxDetail h5{
-    font-size: 18px;
-    margin-bottom: 15px;
-    line-height: 28px;
-    font-weight: 500;
-    color: #333;
-}
-
-.productViewBoxDetail h5 b{
-    font-weight: 600;
-    color: #000;
-    
-}
-
-
-.productViewBoxDetail .viewProduct{
-    border: 1px solid;
-    color: rgb(14, 185, 80);
-    font-weight: 18px;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.productViewBoxDetail .addReview{
-    color: #333;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    margin-left: 20px;
-    display: inline-block;
-}
-
-.productViewBoxDetail .rentNow{
-    border: 1px solid rgb(14, 185, 80);
-    background-color: rgb(14, 185, 80);
-    color: #fff;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-    width: 30%;
-    text-align: center;
-    display: inline-block;
+    visibility: visible;
 }

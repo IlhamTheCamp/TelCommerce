@@ -33,12 +33,15 @@ class Pelanggan_model extends CI_Model {
 	}
 
 	// Sudah Login Pelanggans
-	public function sudah_login($email,$nama_pelanggan)
+	public function sudah_login($email,$nama_pelanggan,$nim,$telepon,$alamat)
 	{
 		$this->db->select('*');
 		$this->db->from('pelanggan');
 		$this->db->where(array(	'email'				=> $email,
-								'nama_pelanggan' 	=> $nama_pelanggan
+								'nama_pelanggan' 	=> $nama_pelanggan,
+								'nim'				=> $nim,
+								'telepon'			=> $telepon,
+								'alamat' 			=> $alamat
 								));
 		$this->db->order_by('id_pelanggan', 'desc');
 		$query	=	$this->db->get();

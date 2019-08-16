@@ -21,6 +21,9 @@ $site 	=	$this->konfigurasi_model->listing();
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/profile.css">
     <link rel = "stylesheet" type = "text/css" href = "https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/checkout_page.css">
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/checkout.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src = "<?php echo base_url() ?>assets/template/js/jquery-3.4.1.min.js"></script>
 
 </head>
 

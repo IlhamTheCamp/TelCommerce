@@ -104,6 +104,13 @@ class Registrasi extends CI_Controller {
 		$valid->set_rules('password','Password','required',
 			array( 	'required' 		=>	'%s harus diisi'));
 
+		$valid->set_rules('telepon','Telepon','required',
+			array(	'required'		=>	'%s harus diisi'));
+
+		$valid->set_rules('alamat','Alamat','required',
+			array(	'required'		=>	'%s harus diisi'));
+
+
 		if($valid->run()===FALSE) {
 		// End validasi
 
@@ -118,8 +125,10 @@ class Registrasi extends CI_Controller {
 			$data = array( 	'status_pelanggan'	=>	'Pending',
 							'nama_pelanggan'	=>	$i->post('nama_pelanggan'),
 							'email'				=>	$i->post('email'),
-							'nim' 				=>	$i->post('nim'),
+							'nim'				=>	$i->post('nim'),
 							'password'			=>	SHA1($i->post('password')),
+							'telepon' 			=>	$i->post('telepon'),
+							'alamat' 			=>	$i->post('alamat'),
 							// 'gambar'			=>	$upload_gambar['upload_data']['file_name'],
 							'tanggal_daftar'	=>	date('Y-m-d H:i:s')
 						);
@@ -127,6 +136,9 @@ class Registrasi extends CI_Controller {
 			// Create Session Login
 			$this->session->set_userdata('email',$i->post('email'));
 			$this->session->set_userdata('nama_pelanggan',$i->post('nama_pelanggan'));
+			$this->session->set_userdata('nim',$i->post('nim'));
+			$this->session->set_userdata('telepon',$i->post('telepon'));
+			$this->session->set_userdata('alamat',$i->post('alamat'));
 			// End Create Session
 			$this->session->set_flashdata('sukses', 'Registrasi berhasil');
 			redirect(base_url('registrasi/sukses'),'refresh');

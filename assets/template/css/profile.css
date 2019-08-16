@@ -245,6 +245,9 @@ table {
 }
 /* End of Banner */
 
+
+
+/* Middle categories */
 .product-area{
     width: 70%;
     float: left;
@@ -255,7 +258,6 @@ table {
 
 }
 
-/* Middle categories */
 .product-area h3{
     font-size: 18px;
     color: black;
@@ -272,7 +274,7 @@ table {
     cursor: pointer;
     color: black;
     text-decoration: none;
-    margin-left:900px;   
+    margin-left:970px;   
 }
 
 .categories-mid .See:hover{

@@ -1,173 +1,137 @@
-<!-- breadcrumb -->
-<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
-<a href="<?php echo base_url() ?>" class="s-text16">
-	Home
-	<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-</a>
+<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url() ?>assets/template/css/product_view.css">
 
-<a href="<?php echo base_url('produk') ?>" class="s-text16">
-	Produk
-	<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-</a>
 
-<span class="s-text17">
-	<?php echo $title ?>
-</span>
+<div class = "header">
+    <div class = "container">
+        <div class = "searchbar">
+            <form>
+                <input type="search" class = "searchField" placeholder="Search items or owners">
+            </form>
+        </div>
+
+        <div class = "headerright">
+                <ul>
+                    <?php if($this->session->userdata('email')) { ?>
+	                <li><a href = "<?php echo base_url('belanja/cart') ?>" placeholder = "Cart" style ="font-size: 20px;"><i class ="fas fa-cart-plus"></i></a></li>
+	                <li><a href = "#" placeholder = "Notifications" style ="font-size: 20px;"><i class = "fas fa-bell"></i></a></li>
+	                <li><a href = "#" placeholder = "Messages" style ="font-size: 20px;"><i class = "fas fa-envelope-square"></i></a></li>
+                	<li><a href = "<?php echo base_url('dasbor') ?>" placeholder = "User"><i class = "fas fa-user"></i> <?php echo $this->session->userdata('nama_pelanggan'); ?>&nbsp;</a></li>
+                	<li><a href = "<?php echo base_url('masuk/logout') ?>" placeholder = "Logout" style ="font-size: 20px;"><i class = "fas fa-sign-out"></i></a> Logout</li>
+                <?php }else{ ?>
+                	<li><a href = "<?php echo base_url('masuk') ?>" placeholder = "User"><i class = "fas fa-user"></i> Login</a></li>
+                <?php } ?>
+                </ul>
+            </div>
+    </div>
 </div>
 
-<!-- Product Detail -->
-<div class="container bgwhite p-t-35 p-b-80">
-<div class="flex-w flex-sb">
-	<div class="w-size13 p-t-30 respon5">
-		<div class="wrap-slick3 flex-sb flex-w">
-			<div class="wrap-slick3-dots"></div>
+<!-- Header Ends -->
 
-			<div class="slick3">
-				<div class="item-slick3" data-thumb="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>">
-					<div class="wrap-pic-w">
-						<img src="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>" alt="<?php echo $produk->nama_produk ?>">
-					</div>
-				</div>
-				<?php 
-				if($gambar) {
-					foreach($gambar as $gambar) { 
-				?>
-				<div class="item-slick3" data-thumb="<?php echo base_url('assets/upload/image/'.$gambar->gambar) ?>">
-					<div class="wrap-pic-w">
-						<img src="<?php echo base_url('assets/upload/image/'.$gambar->gambar) ?>" alt="<?php echo $gambar->judul_gambar ?>">
-					</div>
-				</div>
-				<?php  
-					}
-				}
-				?>
-			</div>
-		</div>
-	</div>
-
-	<div class="w-size14 p-t-30 respon5">
-		<h1 class="product-detail-name m-text20 p-b-13">
-			<?php echo $title ?>
-		</h1>
-
-		<?php 
-		// Form untuk memproses belanjaan
-		echo form_open(base_url('belanja/add')); 
-		// Elemen yang dibawa
-		echo form_hidden('id', $produk->id_produk);
-		// echo form_hidden('qty', 1);
-		echo form_hidden('price', $produk->harga);
-		echo form_hidden('name', $produk->nama_produk);
-		// Elemen redirect
-		echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
-		?>
-
-		<span class="m-text14">
-			IDR <?php echo number_format($produk->harga,'0',',','.') ?>
-		</span>
-
-		<p class="s-text8 p-t-10">
-			<?php echo $produk->keterangan ?>
-		</p>
-
-		<!--  -->
-		<div class="p-t-33 p-b-60">
-			<div class="flex-r-m flex-w p-t-10">
-				<div class="w-size16 flex-m flex-w">
-					<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-						<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-							<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-						</button>
-
-						<input class="size8 m-text18 t-center num-product" type="number" name="qty" value="1">
-
-						<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-							<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-						</button>
-					</div>
-
-					<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
-						<!-- Button -->
-						<button type="submit" value="submit" name="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-							Add to Cart
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php 
-		// Closing Form
-		echo form_close();
-		?>
-	</div>
-</div>
+<div class = "banner">
+    <img src="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>">
 </div>
 
+<div class = "categories-main">
+    
+    <?php 
+	// Form untuk memproses belanjaan
+	echo form_open(base_url('belanja/add')); 
+	// Elemen yang dibawa
+	echo form_hidden('id', $produk->id_produk);
+	echo form_hidden('qty', 1);
+	echo form_hidden('price', $produk->harga);
+	echo form_hidden('name', $produk->nama_produk);
+	// Elemen redirect
+	echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+	?>
 
-<!-- Relate Product -->
-<section class="relateproduct bgwhite p-t-45 p-b-138">
-<div class="container">
-	<div class="sec-title p-b-60">
-		<h3 class="m-text5 t-center">
-			Related Products
-		</h3>
-	</div>
+    <!-- Product Column 1 Start-->
+        <div class = "col-3">
+                <div class = "pricey">
+                    <h3>Price</h3>
+                <p>Rp.<?php echo number_format($produk->harga,'0',',','.') ?></p>
+                <span>
+                    <a href = "<?php echo base_url('belanja/cart') ?>">
+                        <button>Add</button>
+                    </a>
+                </span>
+                </div>   
+        </div>
 
-	<!-- Slide2 -->
-	<div class="wrap-slick2">
-		<div class="slick2">
-		<?php foreach($produk_related as $produk_related) { ?>
-		<div class="item-slick2 p-l-15 p-r-15">
-			<?php 
-			// Form untuk memproses belanjaan
-			echo form_open(base_url('belanja/add')); 
-			// Elemen yang dibawa
-			echo form_hidden('id', $produk_related->id_produk);
-			echo form_hidden('qty', 1);
-			echo form_hidden('price', $produk_related->harga);
-			echo form_hidden('name', $produk_related->nama_produk);
-			// Elemen redirect
-			echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
-			?>
-				<!-- Block2 -->
-				<div class="block2">
-					<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-						<img src="<?php echo base_url('assets/upload/image/'.$produk_related->gambar) ?>" alt="<?php echo $produk_related->nama_produk ?>">
 
-						<div class="block2-overlay trans-0-4">
-							<a href="" class="block2-btn-addwishlist hov-pointer trans-0-4">
-								<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-								<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-							</a>
+    <!-- Product Column 2 Start -->
+    <div class = "col-3">
+            <h4><?php echo $produk->nama_produk ?></h4>
+            <div class = "caption">
+                <h5>Details</h5>
+                <p><?php echo $produk->keterangan ?></p>        
+            </div>
+    </div>
+    <!-- Product Column 2 End-->
 
-							<div class="block2-btn-addcart w-size1 trans-0-4">
-								<!-- Button Belanja -->
-								<button type="submit" value="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-									Tambah ke Keranjang
-								</button>
-							</div>
-						</div>
-					</div>
+    <!-- Product Column 3 Start-->
+        <div class = "col-3">
+                <div class = "review">
+                <h3>Reviews</h3>
+                <button>Write a Review</button>
+                <div class = "reviewInner">
+                        <img src="<?php echo base_url('assets/template/images/product_view/person1.jpg')?>"  style="width: 10%;border-radius:50px;">
+                        <span class="heading">Johnson Joe</span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <p>Wonderful Jacket! This would be nice for me to wear when I'm going on a vacation next Winter</p>
+                </div>
 
-					<div class="block2-txt p-t-20">
-						<a href="<?php echo base_url('produk/detail/'.$produk_related->slug_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
-							<?php echo $produk_related->nama_produk ?>
-						</a>
+                <div class = "reviewInner">
+                        <img src="<?php echo base_url('assets/template/images/product_view/person2.jpg')?>" style="width: 10%;border-radius:100px;">
+                        <span class="heading">Raging Redneck</span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star checked" style="color: yellow"></span>
+                        <span class="fa fa-star"></span>
+                        <p>this is going to be so fatastic once I wear this on my friend's huge & pretty rad parties. Thanks man ! !</p>
+                </div>
+                
+            </div>
+        </div>
 
-						<span class="block2-price m-text6 p-r-5">
-							IDR <?php echo number_format($produk_related->harga,'0',',','.') ?>
-						</span>
-					</div>
-				</div>
-
-			<?php 
-			// Closing Form
-			echo form_close();
-			?>
-		</div>
-		<?php } ?>
-		</div>
-	</div>
-
+    <?php 
+	// Closing Form
+	echo form_close();
+	?>
 </div>
-</section>
+
+    <!-- Products Arrival -->
+    <div class = "product-area">
+
+            <div class = "categories-mid">
+                <ul>
+                    <li><h3>New Arrivals</h3></li>
+                    
+                </ul>
+                <?php foreach($produk_related as $produk_related) { ?>
+                <div class = "col-3">
+                    <a href = "<?php echo base_url('produk/detail/'.$produk_related->slug_produk) ?>">
+                        <img src = "<?php echo base_url('assets/upload/image/'.$produk_related->gambar) ?>" alt="<?php echo $produk_related->nama_produk ?>">
+                        <div class = "caption">
+                            <h2><?php echo $produk_related->nama_produk ?></h2>
+                            <h4>Department Lorem.</h4>
+                                 <button class = "price">Rp.<?php echo number_format($produk_related->harga,'0',',','.') ?></button>
+                                 <h4>Details Lorem ipsum dolor sit amet,
+                                        consectetur adipisicing elit.</h4>
+                        </div>
+                        
+                    </a>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+
+<script src = "js/jquery-3.4.1.min.js"></script>
+<script src = "js/jquery.cycle.js"></script>
+</body>
+</html>

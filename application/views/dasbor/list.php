@@ -9,7 +9,7 @@
         <div class = "headerright">
             <ul>
                 <?php if($this->session->userdata('email')) { ?>
-                    <li><a href = "<?php echo base_url('belanja/checkout') ?>" placeholder = "Cart" style ="font-size: 20px;"><i class ="fas fa-cart-plus"></i></a></li>
+                    <li><a href = "<?php echo base_url('belanja/cart') ?>" placeholder = "Cart" style ="font-size: 20px;"><i class ="fas fa-cart-plus"></i></a></li>
                     <li><a href = "#" placeholder = "Notifications" style ="font-size: 20px;"><i class = "fas fa-bell"></i></a></li>
                     <li><a href = "#" placeholder = "Messages" style ="font-size: 20px;"><i class = "fas fa-envelope-square"></i></a></li>
                     <li><a href = "<?php echo base_url('dasbor') ?>" placeholder = "User"><i class = "fas fa-user"></i> <?php echo $this->session->userdata('nama_pelanggan'); ?>&nbsp;</a></li>
@@ -27,7 +27,7 @@
         <div class = "profileUp">
                 <ul>
                     <h4>Never Registered an Item Before?</h4>
-                    <li></li><button class = "registBtn">Register Now</button>
+                    <li></li><a href = "<?php echo base_url('dasbor/add') ?>"><button class = "registBtn">Register Now</a></button>
                 </ul>
         </div>
 

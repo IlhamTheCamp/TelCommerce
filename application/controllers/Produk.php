@@ -134,6 +134,8 @@ class Produk extends CI_Controller {
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 
+	
+
 }
 
 /* End of file Produk.php */

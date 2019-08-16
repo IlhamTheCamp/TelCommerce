@@ -26,6 +26,8 @@
                 <input class = "textField" type="email" name = "email"placeholder = "Email" value = "<?php echo set_value('email') ?>" required >
                 <input class = "textField" type="text" name = "nim" placeholder = "NIM" value = "<?php echo set_value('nim') ?>" required >
                 <input class = "textField" type="password" name = "password" placeholder = "Password" value = "<?php echo set_value('password') ?>" required >
+                <input class = "textField" type="text" name = "telepon" placeholder = "Telephone Number" value = "<?php echo set_value('telepon') ?>" required >
+                <input class = "textField" type="text" name = "alamat" placeholder = "Address" value = "<?php echo set_value('alamat') ?>" required >
                 <input class = "submitBtn" type="submit" name = "submit" value = "SIGN UP">
                 </form>
                 

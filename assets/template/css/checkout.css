@@ -1,0 +1,432 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+input{
+    outline: none;
+}
+body {
+    line-height: 1;
+    font-family: open sans;
+    font-size: 16px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.navbar{
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    float: left;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    margin-top: 15px;
+}
+
+.navbar .container img{
+    margin-top: 10px;
+}
+
+.topleft{
+    float: left;
+}
+
+.topright{
+    float: right;
+}
+
+.navbar ul{
+    line-height: 25px;
+}
+
+.navbar ul li{
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration:none;
+    display: inline-block;
+    background-color: white;
+    color:black;
+    padding: 0 5px;
+    width: 100%;
+    text-align:center;
+    -webkit-transition: 300ms;
+}
+
+.navbar ul li a:hover{
+    color: rgb(145, 145, 118);
+}
+
+/* Submenu style */
+.navbar ul li ul{
+    position: absolute;
+    display: none;
+    z-index: 999;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid grey;
+}
+
+.navbar ul li ul li{
+    width: 100%;
+}
+
+.navbar ul li ul li a{
+    padding:0;
+}
+
+/* .navbar ul li ul{
+
+    } */
+
+.header{
+    display: inline-block;
+    width: 100%;
+    float:left;
+    margin-top: 20px;
+    padding: 15px 0;
+   
+}
+
+.header .searchbar{
+    width: 45%;
+    float: left;
+    margin-left: 50px;
+}
+
+.searchbar .searchField{
+    width: 100%;
+    height: 35px;
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid gainsboro;
+    text-align: center;
+    
+}
+
+.header .headerright{
+    float: right;
+    font-size: 15px;
+    margin-right: 50px;
+}
+
+.header .headerright ul li{
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.header .headerright ul li a{
+    text-decoration: none;
+    margin-left: 10px;
+    color: black;
+}
+
+/* Checkout Style */
+
+.checkout{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 45px 0;
+
+}
+
+.checkout h2{
+    font-size: 20px;
+    font-weight: 600;
+    color: #242524;
+    padding-bottom: 10px;
+    letter-spacing: 0.5mm;
+    cursor: default;
+}
+
+.checkout h4{
+    font-size: 18px;
+    margin-left: 35px;
+    cursor: default;
+}
+
+.checkout button{
+    margin: 10px 0 10px 0;
+    font-size: 14px;
+    margin-left: 35px;
+    cursor: pointer;
+}
+
+.checkout .defaultBtn{
+    background-color: rgb(177, 236, 187);
+    color: rgb(27, 190, 62);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 20px 5px 20px;
+}
+
+.checkout .editBtn{
+    margin-top: 15px;
+    border: none;
+    color: rgb(57, 214, 91);
+    background-color:#E6FFEA;
+    
+}
+
+.checkout-inner{
+    width: 70%;
+    float: left;
+    border-right: 1px solid #c5c5c5;
+    padding-right: 25px; 
+}
+
+.checkout-form-steps{
+    width: 90%;
+    padding: 15px;
+    display: inline-block;
+}
+
+.checkpoint-form-steps h4{
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid;
+    color: #ff9800;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.checkout-form-steps .textfield{
+    width: 90%;
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid lightgray;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.checkout-form-steps .textfield:focus{
+    border-color: #ff9800;
+}
+
+.checkout-form-steps label{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* Checkbox Controls */
+
+.container-check{
+  display: block;
+  position: relative;
+  padding-top: 20px;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  
+}
+
+.container-check input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.orderSummary{
+    width: 25%;
+    float: right;
+    border: 2px solid #A8B5A9;
+}
+
+.orderSummary h4{
+    font-size: 25px;
+    padding: 15px 0;
+    line-height: 22px;
+    margin: 10px 0 10px 20px;
+    font-weight: 600;
+}
+
+
+.orderSummary p{
+    padding: 25px 5px;
+    margin: 20px 10px 20px 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #00000020;
+    border-top: 2px solid #00000020;
+}
+
+.orderSummary p span{
+    float: right;
+}
+
+
+.orderSummary .RentButton{
+    width: 90%;
+    height: 45px;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0 20px 15px;
+    border: none;
+    font-size: 16px;
+    background-color: #5EDE6F;
+    cursor: pointer;
+}
+.orderSummary .PromoButton{
+    width: 90%;
+    height: 45px;
+    padding: 5px;
+    border: 2px solid #A8B5A9;
+    margin: 10px 0 20px 15px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.orderSummary .rentMsg{
+    min-width: 90%;
+    max-width: 90%;
+    width: 90%;
+	height: 50px;
+	border: 1px solid #A8B5A9;
+	box-sizing: border-box;
+    background-color: transparent;
+    padding: 5px 0 15px 5px;
+    margin-left: 15px;
+	margin-bottom: 15px;
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 12px;
+}
+
+/* Modal Start */
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index :1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb (0,0,0);
+    background-color: rgb(0,0,0,0.8);
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 15px;
+    border: 5px solid #888;
+    width: 30%;
+}
+
+.modal-content h3{
+    text-align: center;
+    font-size: 18px;
+    margin: 40px 0 30px 0;
+}
+
+.modal-content h4{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 80px 0 10px 0;
+}
+
+.modal-content h5{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 80px 0 10px 0;
+    color: #A8B5A9;
+    cursor: default;
+}
+
+.modal-content .modal-inner p{
+    float: left;
+    width: 90%;
+}
+
+.modal-content label{
+    cursor: pointer;
+}
+
+.submitGroup input{
+    font-size: 13px;
+    cursor: pointer;
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(57, 214, 91);
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 80px;
+}
+
+
+.modal-inner-text input{
+    border: none;
+    width: 80%;
+    font-size: 16px;
+    border-bottom: 2px solid #A8B5A9;
+    padding: 10px;
+}
+
+.modal-inner-text .editBtn{
+    background-color: transparent;
+    margin: 10px 0 0 -5px;
+}
+
+
