@@ -27,7 +27,7 @@
         <div class = "profileUp">
                 <ul>
                     <h4>Never Registered an Item Before?</h4>
-                    <li></li><a href = "<?php echo base_url('dasbor/add') ?>"><button class = "registBtn">Register Now</a></button>
+                    <li></li><a href = "<?php echo base_url('dasbor/tambah') ?>"><button class = "registBtn">Register Now</a></button>
                 </ul>
         </div>
 

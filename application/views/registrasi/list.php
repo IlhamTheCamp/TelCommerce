@@ -1,6 +1,6 @@
 <div class = "imageLeft">
-            <img src = "<?php echo base_url() ?>assets/upload/index&signup/pic1.PNG"/>        
-    </div>
+    <img src = "<?php echo base_url() ?>assets/upload/index&signup/pic1.PNG"/>        
+</div>
 
     <?php if($this->session->flashdata('sukses')) {
         echo '<div class="alert alert-warning">';

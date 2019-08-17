@@ -12,6 +12,7 @@ class Dasbor extends CI_Controller {
 		$this->load->model('transaksi_model');
 		$this->load->model('rekening_model');
 		$this->load->model('produk_model');
+		$this->load->model('kategori_model');
 		// Halaman ini diproteksi dengan simple_pelanggan => Check Login
 		$this->simple_pelanggan->cek_login();
 	}
@@ -256,7 +257,7 @@ class Dasbor extends CI_Controller {
 		// End validasi
 
 
-		$data = array(	'title'		=>	'Tambah Gambar Produk: '.$produk->nama_produk,
+		$data = array(	'title'		=>	'Add Pictures: '.$produk->nama_produk,
 						'produk'	=>	$produk,
 						'gambar'	=>	$gambar,
 						'error'		=>	$this->upload->display_error(),
@@ -332,12 +333,12 @@ class Dasbor extends CI_Controller {
 		// End validasi
 
 
-		$data = array(	'title'		=>	'Tambah Produk',
+		$data = array(	'title'		=>	'Add Product',
 						'kategori'	=>	$kategori,
 						'error'		=>	$this->upload->display_error(),
-						'isi'		=>	'admin/produk/tambah'
+						'isi'		=>	'dasbor/tambah'
 					);
-		$this->load->view('admin/layout/wrapper', $data, FALSE);
+		$this->load->view('layout/wrapper', $data, FALSE);
 		// Masuk database
 		}else{
 			$upload_gambar = array('upload_data' => $this->upload->data());
@@ -380,7 +381,7 @@ class Dasbor extends CI_Controller {
 		// End Masuk database
 		$data = array(	'title'		=>	'Tambah Produk',
 						'kategori'	=>	$kategori,
-						'isi'		=>	'dasbor/add'
+						'isi'		=>	'dasbor/tambah'
 					);
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
