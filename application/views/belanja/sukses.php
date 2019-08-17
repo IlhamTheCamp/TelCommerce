@@ -16,7 +16,7 @@
 	} ?>
 
 	<p class="alert alert-success">
-	Terimakasih, barang yang sudah dibeli akan segera kami proses</p>
+	Thank you, your items will be processed and the seller will contact you</p>
 
 </div>
 </div>

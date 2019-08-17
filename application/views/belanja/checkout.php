@@ -99,6 +99,14 @@
                 <textarea class = "rentMsg" placeholder="Let the person you rented know something important they need to know! (Optional)" style="margin-top: 20px;"></textarea>
             </label>
 
+        <br>
+        <?php 
+        echo form_open(base_url('belanja/checkout')); 
+        $kode_transaksi     = date('dmY').strtoupper(random_string('alnum', 8));
+        ?>
+        <input type="hidden" name="id_pelanggan" value="<?php echo $pelanggan->id_pelanggan ?>">
+        <input type="hidden" name="jumlah_transaksi" value="<?php echo $this->cart->total() ?>">
+        <input type="hidden" name="tanggal_transaksi" value="<?php echo date('Y-m-d') ?>">
             
                 
         <!-- Order Summary Ends -->
@@ -123,145 +131,31 @@
                             <input type="radio" name = "radio1">
                         </label>
 
-                        <div class = "submitGroup" style = "text-align: center;">
-                                <input type = "submit" value = "Back" id = "backBtn" style = "margin: 80px 40px 20px 0;">
-                                <input type = "submit" value = "Next" id = "nextBtn" onclick="nextFunction">
-                                
-                        </div>   
-                        
-                                
-                    </div>
-                    
+                        <h4>Transaction Code</h4>
+                        <p><input type="text" name="kode_transaksi" class="form-control" value="<?php echo $kode_transaksi ?>" readonly required></p>
 
+                        <h4>Name</h4>
+                        <p><input type="text" name="nama_pelanggan" class="textField" placeholder="Name" value="<?php echo  $pelanggan->nama_pelanggan ?>" required></p>
+
+                        <h4>Phone Number</h4>
+                        <p><input class = "textField" type="text" name = "telepon" placeholder = "Telephone Number" value = "<?php echo $pelanggan->telepon ?>" required ></p>
+
+                        <h4>Address</h4>
+                        <p><input class = "textField" type="text" name = "alamat" placeholder = "Address" value = "<?php echo $pelanggan->alamat ?>" required ></p>
+
+                        <h4>Email</h4>
+                        <p><input class = "textField" type="email" name = "email"placeholder = "Email" value = "<?php echo $pelanggan->email ?>" required ></p>
+
+                        <div class = "submitGroup" style = "text-align: center;">
+                            <input type = "submit" value = "Back" id = "backBtn" style = "margin: 80px 40px 20px 0;">
+                            <input type = "submit" value = "Confirm" id = "nextBtn">                              
+                        </div>                               
+                    </div>               
                 </form>
             </div>
+
+            <?php echo form_close(); ?>
             <!-- Modal Popup - 1 Ends -->
-
-            <!-- Modal Popup - 2 Start -->
-            <div id = "rentModal2" class = "modal">
-                    <form>
-                        <div class = "modal-content">
-                            <h3>Payment Methods</h3>
-                            <label class = "modal-inner">
-                                <input type="checkbox" name = "checkRadio" style = "float: left;">
-                                <p>Billing Address is the same as delivery address</p>
-                            </label>
-
-                            <label class = "modal-inner-text">
-                                <h5>Street 1</h5>
-                                <input type="text" name = "street1">
-
-                                <h5>Street 2</h5>
-                                <input type="text" name = "street2">
-
-                                <h5>City</h5>
-                                <input type="text" name = "city">
-                                
-                                <label style = "width: 30%;">
-
-                                    <span style="float: left;">
-                                            <h5>State</h5>
-                                            <input type="text" name = "state">
-                                    </span>
-                                    
-                                    <span style="float: right;">
-                                        <h5>County</h5>
-                                        <input type="text" name = "county">
-                                    </span>
-                                    
-                                </label>
-                                    
-                                
-                            </label>
-
-                            <div class = "submitGroup" style = "text-align: center;">
-                                    <input type = "submit" value = "Back" id = "backBtn2" style = "margin: 80px 40px 20px 0;">
-                                    <input type = "submit" value = "Next" id = "nextBtn2" >
-                            </div>    
-                                    
-                        </div>
-                        
-
-                    </form>
-                </div>
-            
-            <!-- Modal Popup - 2 Ends -->
-
-            <!-- Modal Popup - 3 Start -->
-            <div id = "rentModal3" class = "modal">
-                    <form>
-                            <div class = "modal-content">
-                                <h3>Payment Methods</h3>
-                                <label class = "modal-inner" style = "margin-top: 30px;">
-                                        <input type="checkbox" name = "checkRadio" style = "float: left;">
-                                        <p>Save This Card Details</p>
-                                </label>
-
-                                <label class = "modal-inner-text">
-                                    <h5>Name on Card</h5>
-                                    <input type="text" name = "street1">
-
-                                    <h5>Card Number</h5>
-                                    <input type="text" name = "street2">
-                                            
-                                    <label style = "width: 100%; cursor: default;">
-
-                                        <span style="float: left;">
-                                                <h5>Entry Date</h5>
-                                                <input type="text" name = "state">
-                                        </span>
-                                        
-                                        <span style="float: right;">
-                                            <h5>CVV</h5>
-                                            <input type="text" name = "county">
-                                        </span>
-                                        
-                                    </label>
-
-                                </label>
-
-                                <div class = "submitGroup" style = "text-align: center;">
-                                        <input type = "submit" value = "Back" id = "backBtn2" style = "margin: 80px 40px 20px 0;">
-                                        <input type = "submit" value = "Next" id = "nextBtn2" >
-                                </div>    
-                                        
-                            </div>
-                            
-
-                        </form>
-            </div>
-            <!-- Modal Popup - 3 Ends -->
-
-            <div id = "rentModal4" class = "modal">
-                    <form>
-                            <div class = "modal-content">
-                                <h3>Checkout Summary</h3>
-                                
-
-                                <label class = "modal-inner-text">
-                                    <h4 style = "font-size: 20px;padding-bottom: 20px;">Renter Address</h4>
-                                    <p style = "width: 60%;">087881866758<br>Jl. Telekomunikasi, Telkom University, Gedung L, kamar 3A1.<br>Bojongsoang, Kab. Bandung, 40287</p>
-                                    <button class = "editBtn">Change</button>
-
-                                    <h4 style = "font-size: 20px;padding-bottom: 20px;">Payment</h4>
-                                    <input type="text" name = "street2">
-                                            
-                                    
-
-                                </label>
-
-                                <div class = "submitGroup" style = "text-align: center;">
-                                        <input type = "submit" value = "Back" id = "backBtn2" style = "margin: 80px 40px 20px 0;">
-                                        <input type = "submit" value = "Next" id = "nextBtn2" >
-                                </div>    
-                                        
-                            </div>
-                            
-
-                        </form>
-            </div>
-
-            <!-- Modal Summary Start -->
 
             <!-- Modal Summary End -->
 
@@ -278,16 +172,6 @@
     var btn = document.getElementById("rentBtn");
     // var back = document.getElementById("backBtn");
     // var next = document.getElementById("nextBtn");
-
-    var modal2 = document.getElementById("rentModal2");
-    // var back2 = document.getElementById("backBtn2");
-    // var next2 = document.getElementById("nextBtn2");
-
-    var modal3 = document.getElementById("rentModal3");
-    // var back3 = document.getElementById("backBtn3");
-    // var next3 = document.getElementById("nextBtn3");
-
-    var modal4 = document.getElementById("rentModal4");
 
 
     btn.onclick = function(){

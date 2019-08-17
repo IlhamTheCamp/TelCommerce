@@ -117,6 +117,11 @@
             <label class = "orderSummary">
                 <h4>Renting Summary</h4>
                 <p> Total <span>Rp <?php echo number_format($this->cart->total(),'0',',','.') ?></span></p>
+                <p style="font-size: 20px;margin-bottom: 40px;">
+                    <a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-danger btn-lg">
+                        <i class="fa fa-trash-o"></i> Delete All Items in Cart
+                    </a>
+                </p>
                 <input type = "submit" class = "RentButton" value = "Rent Items">
                 <input type = "submit" class = "PromoButton" value = "Use Promo from Telkom Rent">
             </label>
